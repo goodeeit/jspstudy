@@ -29,11 +29,10 @@
         /* 응답 */
         dataType: 'xml',
         success: function(resData){  // resData는 <person><name>alice</name><age>30</age></person> 형태이다.
-          $('#content1').empty();
-          var ul = $('<ul>');
-          ul.append($('<li>').text($(resData).find('name').text()));
-          ul.append($('<li>').text($(resData).find('age').text()));
-          $('#content1').append(ul);
+          var ul = '<ul>';
+          ul += '<li>' + $(resData).find('name').text() + '</li>';
+          ul += '<li>' + $(resData).find('age').text() + '</li>';
+          $('#content1').html(ul);
         },
         error: function(jqXHR){
           alert(jqXHR.status + '(' + jqXHR.statusText + ')');
