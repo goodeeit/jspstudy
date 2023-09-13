@@ -49,13 +49,13 @@
       }
       
       // <div id="preview"> 첨부된 파일 미리보기     
-      var reader = new FileReader();
-      reader.readAsDataURL(this.files[0]);
-      reader.onload = function(event){
-        var img = new Image();
-        $(img).attr('src', event.target.result);
-        $(img).css('width', '192px');
-        $('#preview').html(img);
+      var reader = new FileReader();        // 파일을 읽을 수 있는 FileReader 객체 생성
+      reader.readAsDataURL(this.files[0]);  // 첨부된 파일(this.files[0]) 읽기
+      reader.onload = function(event){      // 첨부된 파일을 모두 읽으면 동작하는 load 이벤트
+        var img = new Image();                     // <img> 태그 생성
+        $(img).attr('src', event.target.result);   // <img src="...">
+        $(img).css('width', '192px');              // <img src="..." style="width: 192px;">
+        $('#preview').html(img);                   // <div id="preview"><img src="..." style="width: 192px;"></div>
       }
       
     })
