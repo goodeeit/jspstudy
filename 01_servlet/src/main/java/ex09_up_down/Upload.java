@@ -3,6 +3,7 @@ package ex09_up_down;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 
@@ -100,7 +101,7 @@ public class Upload extends HttpServlet {
 	  // 모든 첨부 파일 목록
 	  File[] attaches = dir.listFiles();
 	  for(int i = 0; i < attaches.length; i++) {
-	    out.println("<div><a href=\"/servlet/download?name=" + attaches[i].getName() + "\">" + attaches[i].getName() + "</a></div>");
+	    out.println("<div><a href=\"/servlet/download?path=" + URLEncoder.encode(attaches[i].getPath(), "UTF-8") + "\">" + attaches[i].getName() + "</a></div>");
 	  }
 	  
 	  out.flush();
