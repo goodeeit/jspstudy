@@ -1,3 +1,4 @@
+<%@page import="java.net.URLDecoder"%>
 <%@page import="java.io.File"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -8,7 +9,7 @@
 
   // 요청 파라미터
   String dir = request.getParameter("dir");
-  String filename = request.getParameter("filename");
+  String filename = URLDecoder.decode(request.getParameter("filename"), "UTF-8");
   
   // dir의 realPath
   String realPath = application.getRealPath(dir);
