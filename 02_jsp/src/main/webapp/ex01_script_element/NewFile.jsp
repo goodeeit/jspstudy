@@ -25,17 +25,6 @@
 
   <%-- 표현식(expression) : Java 값(변수, 반환값이 있는 메소드 호출) --%>
   <div><%=a%></div>
-
-
-  <%-- 이름과 나이를 변수에 저장한 뒤 보여주자. --%>
-  <%
-    String name = "홍길동";
-    int age = 30;
-  %>
-  <ul>
-    <li>이름 : <%=name%></li>
-    <li>나이 : <%=age%></li>
-  </ul>
   
   
   <%-- 선언부(declaration) : Java 메소드 정의 --%>
@@ -48,7 +37,21 @@
   <div>0~9 사이 난수 : <%=getRandom()%></div>
 
 
-
+  <%-- 연습1. 이름과 나이를 변수에 저장한 뒤 보여주자. --%>
+  <%
+    String name = "홍길동";
+    int age = 30;
+  %>
+  <ul>
+    <li>이름 : <%=name%></li>
+    <li>나이 : <%=age%></li>
+  </ul>
+  
+  
+  
+  
+  
+  
 
 </body>
 </html>
