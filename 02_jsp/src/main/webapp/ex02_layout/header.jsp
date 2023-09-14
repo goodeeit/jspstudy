@@ -5,40 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-  body, nav, ul, li {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  a {
-    text-decoration: none;
-  }
-  .gnb {
-    padding-top: 50px;
-    border-bottom: 1px solid gray;
-  }
-  .gnb ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-  }
-  .gnb li {
-    width: 100px;
-    height: 50px;
-  }
-  .gnb a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    color: gray;
-    text-align: center;
-    line-height: 50px;
-  }
-  .gnb a:hover {
-    color: crimson;
-  }
-</style>
+<link rel="stylesheet" href="/jsp/resource/css/header.css?dt=<%=System.currentTimeMillis()%>">
+<script src="/jsp/resource/js/lib/jquery-3.7.1.min.js"></script>
 </head>
 <body>
 
