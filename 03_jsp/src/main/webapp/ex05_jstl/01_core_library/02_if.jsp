@@ -34,13 +34,6 @@
   <c:if test="${score >= 60 and score < 70}"><c:set var="grade" value="D"/></c:if>
   <c:if test="${score >= 0  and score < 60}"><c:set var="grade" value="F"/></c:if>
   <div>${score}점, ${grade}학점</div>
-  
-  
-  
-  
-  
-  
-  
 
 </body>
 </html>
