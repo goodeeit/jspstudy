@@ -1,14 +1,14 @@
 package service;
 
-import java.time.LocalDate;
+import java.time.LocalTime;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class GetDate implements MvcService {
+public class GetTime implements MvcService {
 
   @Override
   public String exec(HttpServletRequest request) {
-    request.setAttribute("today", LocalDate.now().toString());
+    request.setAttribute("now", LocalTime.now().toString());
     return "views/result.jsp";
   }
   

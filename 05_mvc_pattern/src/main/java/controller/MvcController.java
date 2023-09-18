@@ -8,11 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import service.GetDate;
+import service.GetTime;
+import service.MvcService;
 
 /**
  * Servlet implementation class MvcController
  */
-@WebServlet("/getDatetime.do")
+@WebServlet("*.do")
 public class MvcController extends HttpServlet {
   private static final long serialVersionUID = 1L;
        
@@ -31,16 +33,24 @@ public class MvcController extends HttpServlet {
     
     request.setCharacterEncoding("UTF-8");
     
-    String type = request.getParameter("type");
+    String requestURI = request.getRequestURI();                     /*   /mvc/getDate.do  */
+    String contextPath = request.getContextPath();                   /*   /mvc             */
+    String urlMapping = requestURI.substring(contextPath.length());  /*   /getDate.do      */
     
-    switch(type) {
-    case "1":
-      GetDate getDate = new GetDate();
-      String path = getDate.exec(request);
-      request.getRequestDispatcher(path).forward(request, response);
+    MvcService mvcService = null;
+    
+    switch(urlMapping) {
+    case "/getDate.do":
+      mvcService = new GetDate();
       break;
-    case "2":
+    case "/getTime.do":
+      mvcService = new GetTime();
+      break;
     }
+    
+    String path = mvcService.exec(request);
+    request.getRequestDispatcher(path).forward(request, response);
+    
     
   }
 
