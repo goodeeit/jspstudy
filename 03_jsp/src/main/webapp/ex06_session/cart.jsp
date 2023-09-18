@@ -16,7 +16,7 @@
     })
     $('#btn_clear_cart').click(function(){
       if(confirm('장바구니를 비울까요?')){
-        locatioh.href = '${contextPath}/clearCart';
+        location.href = '${contextPath}/clearCart';
       } else {
         alert('장바구니 비우기를 취소했습니다.');
       }

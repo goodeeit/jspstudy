@@ -65,7 +65,7 @@ public class AddToCart extends HttpServlet {
     
     // 응답하기
     out.println("<script>");
-    out.println("if(confirm('" + item + "을 장바구니에 담았습니다.\n장바구니로 가려면 \"확인\" 계속 쇼핑하려면 \"취소\" 버튼을 누르세요'){");
+    out.println("if(confirm('" + item + "을 장바구니에 담았습니다. 장바구니로 가려면 \"확인\" 계속 쇼핑하려면 \"취소\" 버튼을 누르세요')){");
     out.println("location.href='" + request.getContextPath() + "/ex06_session/cart.jsp'");
     out.println("}else{");
     out.println("location.href='" + request.getContextPath() + "/ex06_session/main.jsp'");
