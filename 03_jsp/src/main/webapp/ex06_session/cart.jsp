@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
-  //<body> 태그를 모두 읽은 뒤 function(){}을 실행한다.
+  // $(function(){})로 처리하면, <body> 태그를 모두 읽은 뒤 function(){}을 실행한다.
   $(function(){
     $('#btn_shop').click(function(){
       location.href = '${contextPath}/ex06_session/main.jsp';
