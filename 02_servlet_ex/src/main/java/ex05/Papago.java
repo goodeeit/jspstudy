@@ -58,7 +58,7 @@ public class Papago extends HttpServlet {
       String params = "source=" + source + "&target=" + target+"&text=" + text;
       
       // URL 객체 생성과 접속 생성
-      //url = new URL(spec);
+      url = new URL(spec);
       con = (HttpURLConnection) url.openConnection();
       
       // 요청 메소드 POST (생략할 수 없다.)
@@ -96,7 +96,7 @@ public class Papago extends HttpServlet {
       
       // 응답 출력 스트림 생성
       PrintWriter out = response.getWriter();
-      
+      System.out.println(sb.toString());
       // 응답하기
       out.println(sb.toString());
       out.flush();
@@ -111,7 +111,7 @@ public class Papago extends HttpServlet {
       
       // 예외 메시지 JSON
       // {"message": "예외메시지"}
-      String message = "{\"message\": \""+e.getMessage() + "\"}";
+      String message = "{\"message\": \"" + e.getMessage().replace("\"", "'") + "\"}";
       
       // 응답 출력 스트림 생성
       PrintWriter out = response.getWriter();
