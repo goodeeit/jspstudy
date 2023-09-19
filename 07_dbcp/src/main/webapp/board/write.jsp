@@ -10,9 +10,11 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
 
-  // 함수 호출
-  fnBoardList();
-  fnBoardRegister();
+  $(function(){
+    // 함수 호출
+    fnBoardList();
+    fnBoardRegister();
+  })
 
   // 함수 정의
   function fnBoardList(){

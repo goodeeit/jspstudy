@@ -7,6 +7,7 @@ import domain.BoardDto;
 
 public class BoardServiceImpl implements BoardService {
 
+
   @Override
   public ActionForward register(HttpServletRequest request) {
     

@@ -31,10 +31,10 @@ public class BoardController extends HttpServlet {
    */
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    // Filter 실행 후 Controller 실행
+    // BoardFilter 실행 후 Controller 실행
     
-    // 요청 인코딩 + 응답 타입과 인코딩
-    request.setCharacterEncoding("UTF-8");
+    // 요청 인코딩(BoardFilter가 수행함) + 응답 타입과 인코딩
+    // request.setCharacterEncoding("UTF-8");
     response.setContentType("text/html; charset=UTF-8");
     
     // 요청 주소 확인
