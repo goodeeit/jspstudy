@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import common.ActionForward;
+import service.BoardService;
+import service.BoardServiceImpl;
 
 /**
  * Servlet implementation class BoardController
@@ -43,15 +45,22 @@ public class BoardController extends HttpServlet {
     // 어디로 어떻게 이동할 것인지 알고 있는 ActionForward 객체
     ActionForward af = null;
     
-    
+    // BoardService 객체 생성
+    BoardService boardService = new BoardServiceImpl();
+
     // 요청에 따른 처리
     switch(urlMapping) {
     // 단순 이동 (forward 처리)
     case "/board/list.do":
       af = new ActionForward("/board/list.jsp", false);
       break;
+    case "/board/write.do":
+      af = new ActionForward("/board/write.jsp", false);
+      break;
     // 서비스 처리
-    
+    case "/board/register.do":
+      af = boardService.register(request);
+      break;
     }
     
     // 이동
