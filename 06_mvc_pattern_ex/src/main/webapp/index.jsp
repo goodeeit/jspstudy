@@ -23,7 +23,15 @@
     </form>
   </div>
 
-
+  <hr>
+  
+  <div>
+    <form method="get" action="${contextPath}/getAbs.do">
+      <label for="n">숫자입력</label>
+      <input type="text" name="n" id="n">
+      <button type="submit">절대값요청하기</button>
+    </form>
+  </div>
 
 
 
