@@ -54,6 +54,9 @@ public class BoardController extends HttpServlet {
     case "/board/write.do":
       af = new ActionForward("/board/write.jsp", false);
       break;
+    case "/index.do":
+      af = new ActionForward("/index.jsp", false);
+      break;
     // 서비스 처리
     case "/board/register.do":
       af = boardService.register(request);
@@ -63,6 +66,12 @@ public class BoardController extends HttpServlet {
       break;
     case "/board/detail.do":
       af = boardService.getBoardByNo(request);
+      break;
+    case "/board/edit.do":
+      af = boardService.edit(request);
+      break;
+    case "/board/modify.do":
+      af = boardService.modify(request);
       break;
     }
     

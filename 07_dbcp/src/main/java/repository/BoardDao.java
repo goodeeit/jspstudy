@@ -193,7 +193,34 @@ public class BoardDao {
     
   }
   
-  
+  // 게시글 수정 메소드
+  public int modify(BoardDto dto) {
+    
+    // 수정 결과
+    int modifyResult = 0;
+    
+    try {
+      
+      con = dataSource.getConnection();
+      String sql = "UPDATE BOARD_T"
+                 + "   SET TITLE = ?, CONTENT = ?, MODIFIED_AT = SYSDATE"
+                 + " WHERE BOARD_NO = ?";
+      ps = con.prepareStatement(sql);
+      ps.setString(1, dto.getTitle());
+      ps.setString(2, dto.getContent());
+      ps.setInt(3, dto.getBoard_no());
+      modifyResult = ps.executeUpdate();
+      
+    } catch (Exception e) {
+      e.printStackTrace();
+    } finally {
+      close();
+    }
+    
+    // 수정 결과 반환
+    return modifyResult;
+    
+  }
   
   
   
