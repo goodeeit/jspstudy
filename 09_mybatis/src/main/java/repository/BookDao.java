@@ -93,16 +93,4 @@ public class BookDao {
     return deleteResult;
   }
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 }

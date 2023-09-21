@@ -53,15 +53,4 @@
      WHERE BOOK_NO = #{bookNo}
   </delete>
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
 </mapper>
