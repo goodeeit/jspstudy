@@ -59,7 +59,7 @@ public class BookDao {
     return dto;
   }
   
-  // 등록 메소드 
+  // 등록 메소드
   public int bookAdd(BookDto dto) {
     SqlSession ss = factory.openSession(false);  // false : 내가 커밋하겠다.
     int addResult = ss.insert(NS + "bookAdd", dto);
@@ -80,7 +80,6 @@ public class BookDao {
     ss.close();
     return modifyResult;
   }
-  
   
   // 삭제 메소드
   public int bookDelete(int bookNo) {
