@@ -98,7 +98,9 @@
   }
   
   var ableEmail = false;
+  ////// myEmail 변수 추가 //////
   var myEmail = '';
+  ///////////////////////////////
   
   function fnEmailCheck(){
     $('#email').keyup(function(){
