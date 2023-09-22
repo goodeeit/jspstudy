@@ -5,6 +5,23 @@
 
 <mapper namespace="repository.member">
 
-
+  <select id="memberList" resultType="domain.MemberDto">
+    SELECT MEMBER_NO, EMAIL, NAME, GENDER, ADDRESS
+      FROM MEMBER_T
+     ORDER BY MEMBER_NO DESC
+  </select>
+  
+  <select id="memberCount" resultType="int">
+    SELECT COUNT(*)
+      FROM MEMBER_T
+  </select>
 
 </mapper>
+
+
+
+
+
+
+
+
