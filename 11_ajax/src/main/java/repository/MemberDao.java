@@ -54,7 +54,12 @@ public class MemberDao {
     return addResult;
   }
   
-  
+  public MemberDto getMemberByEmail(String email) {
+    SqlSession ss = factory.openSession();
+    MemberDto dto = ss.selectOne(NS + "getMemberByEmail", email);
+    ss.close();
+    return dto;
+  }
   
   
   

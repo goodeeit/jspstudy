@@ -13,6 +13,8 @@
   $(function(){
     fnMemberList();
     fnInit();
+    fnMemberAdd();
+    fnEmailCheck();
   })
 
   function fnMemberList(){
@@ -46,13 +48,64 @@
   }
   
   function fnInit(){
-    $('#btn_init').click(function(){
-      $('#email').val('');
-      $('#name').val('');
-      $('#none').prop('checked', true);
-      $('#address').val('');
+    $('#btn_init').click(fnInitDetail);
+  }
+  
+  function fnInitDetail(){
+    $('#email').val('');
+    $('#name').val('');
+    $('#none').prop('checked', true);
+    $('#address').val('');
+  }
+  
+  function fnMemberAdd(){
+    $('#btn_add').click(function(){
+      if(!ableEmail){
+        alert('등록할 수 없는 이메일입니다.');
+        $('#email').focus();
+        return;
+      }
+      $.ajax({
+        type: 'post',
+        url: '${contextPath}/member/add.do',
+        data: $('#frm_member').serialize(),  // 폼의 모든 입력 요소를 파라미터로 전송함(입력 요소는 name 속성이 필요함)
+        dataType: 'text',
+        success: function(resData){      // resData === '{"addResult":1}'   string
+          var obj = JSON.parse(resData); //     obj === {"addResult":1}     object
+          if(obj.addResult === 1){
+            alert('회원 정보가 등록되었습니다.');
+            fnMemberList();
+            fnInitDetail();
+          } else {
+            alert('회원 정보 등록이 실패했습니다.');
+          }
+        }
+      })
     })
   }
+  
+  var ableEmail = false;
+  
+  function fnEmailCheck(){
+    $('#email').keyup(function(){
+      $.ajax({
+        type: 'get',
+        url: '${contextPath}/member/emailCheck.do',
+        data: 'email=' + $(this).val(),
+        dataType: 'text',
+        success: function(resData){   // resData === '{"ableEmail":true}'
+          var obj = JSON.parse(resData);  // obj === {"ableEmail":true}
+          ableEmail = obj.ableEmail;
+          if(obj.ableEmail){
+            $('#msg_email').val('');
+          } else {
+            $('#msg_email').val('이미 등록된 이메일입니다.');
+          }
+        }
+      })
+    })
+  }
+  
 
 </script>
 </head>
