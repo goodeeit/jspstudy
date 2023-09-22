@@ -124,7 +124,6 @@
     })
   }
   
-  
   function fnMemberDetail(){
     $(document).on('click', '.btn_detail', function(){
       $.ajax({
