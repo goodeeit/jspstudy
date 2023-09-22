@@ -96,10 +96,10 @@
         success: function(resData){   // resData === '{"ableEmail":true}'
           var obj = JSON.parse(resData);  // obj === {"ableEmail":true}
           ableEmail = obj.ableEmail;
-          if(obj.ableEmail){
-            $('#msg_email').val('');
+          if(ableEmail){
+            $('#msg_email').text('');
           } else {
-            $('#msg_email').val('이미 등록된 이메일입니다.');
+            $('#msg_email').text('이미 등록된 이메일입니다.');
           }
         }
       })
