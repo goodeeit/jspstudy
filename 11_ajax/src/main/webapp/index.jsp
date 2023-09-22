@@ -147,6 +147,9 @@
           $('#btn_modify').prop('disabled', false);
           $('#btn_delete').prop('disabled', false);
           ////////////////////////////////////////////////
+          //// ableEmail 상태 갱신을 위해 email의 keyup 이벤트 강제 실행 ////
+          $('#email').trigger('keyup');
+          ///////////////////////////////////////////////////////////////////
         }
       })
     })
